@@ -23,7 +23,7 @@ for item in $MAPPED; do
 ((COUNT++))  
 done
 
-sudo mount /dev/mapper/$MAP_PART /mnt
+sudo mount --bind /dev/mapper/$MAP_PART /mnt
 sudo sed -i 's/^\/dev\/mmcblk/#\0/g' /mnt/etc/fstab
 sudo sed -i 's/^PARTUUID/#\0/g' /mnt/etc/fstab
 sudo rm -f /mnt/etc/console-setup/cached_UTF-8_del.kmap.gz
